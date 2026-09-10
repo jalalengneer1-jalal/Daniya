@@ -1,0 +1,10 @@
+project_id = "daniya"
+
+[functions.create-order]
+verify_jwt = false
+
+[functions.submit-contact]
+verify_jwt = false
+
+[functions.ingest-analytics]
+verify_jwt = false

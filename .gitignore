@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.production
+.env.*.local
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+.vite/
+supabase/.temp/
+.edge-*/
+.pg-smoke/
+smoke-*.png
+/font/

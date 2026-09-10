@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'A Lamia';
+  src: url('/fonts/A-Lamia.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Daniya Latin';
+  src: url('/fonts/Abdoullah-Ashger-EL-kharef.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 38% 97%;
+    --foreground: 24 33% 15%;
+    --card: 42 42% 99%;
+    --card-foreground: 24 33% 15%;
+    --popover: 42 42% 99%;
+    --popover-foreground: 24 33% 15%;
+    --primary: 39 62% 53%;
+    --primary-foreground: 25 40% 12%;
+    --secondary: 36 39% 89%;
+    --secondary-foreground: 24 38% 20%;
+    --muted: 36 25% 91%;
+    --muted-foreground: 24 17% 42%;
+    --accent: 34 38% 78%;
+    --accent-foreground: 24 38% 18%;
+    --destructive: 2 66% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 34 27% 80%;
+    --input: 34 24% 84%;
+    --ring: 39 62% 53%;
+    --wood: 24 40% 21%;
+    --wood-light: 34 38% 68%;
+    --sand: 36 39% 88%;
+    --ivory: 40 33% 96%;
+    --gold: 39 62% 53%;
+    --soft-border: 34 19% 83%;
+    --ink: 24 19% 10%;
+    --success: 142 48% 34%;
+    --warning: 35 88% 45%;
+    --radius: 0.9rem;
+  }
+
+  .dark {
+    --background: 24 24% 9%;
+    --foreground: 40 30% 94%;
+    --card: 24 29% 14%;
+    --card-foreground: 40 30% 94%;
+    --popover: 24 29% 13%;
+    --popover-foreground: 40 30% 94%;
+    --primary: 39 68% 58%;
+    --primary-foreground: 24 28% 10%;
+    --secondary: 24 27% 19%;
+    --secondary-foreground: 40 26% 92%;
+    --muted: 24 20% 20%;
+    --muted-foreground: 36 16% 70%;
+    --accent: 27 28% 25%;
+    --accent-foreground: 40 30% 94%;
+    --destructive: 2 58% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 29 23% 29%;
+    --input: 29 23% 29%;
+    --ring: 39 68% 58%;
+    --wood: 24 32% 16%;
+    --wood-light: 31 29% 43%;
+    --sand: 27 22% 19%;
+    --ivory: 40 30% 94%;
+    --gold: 39 68% 58%;
+    --soft-border: 28 20% 28%;
+    --ink: 24 24% 8%;
+    --success: 142 50% 46%;
+    --warning: 39 86% 57%;
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    @apply min-w-0 bg-background text-foreground antialiased;
+    margin: 0;
+    font-family: 'Daniya Latin', ui-sans-serif, system-ui, sans-serif;
+    background-image:
+      radial-gradient(circle at 10% 5%, hsl(var(--gold) / .10), transparent 28rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / .35));
+  }
+  [dir='rtl'] body { font-family: 'A Lamia', 'Daniya Latin', sans-serif; }
+  button, input, textarea, select { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
+  ::selection { background: hsl(var(--gold) / .35); }
+}
+
+@layer components {
+  .page-shell { @apply min-h-screen pt-20; }
+  .content-shell { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section-space { @apply py-14 sm:py-20; }
+  .surface-card { @apply rounded-2xl border border-border/80 bg-card/90 text-card-foreground shadow-[0_14px_45px_-28px_rgba(50,30,18,.55)] backdrop-blur; }
+  .section-kicker { @apply mb-3 inline-flex items-center rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary; }
+  .section-title { @apply text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl; }
+  .section-copy { @apply mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg; }
+  .gold-rule { @apply mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-amber-600; }
+  .form-label { @apply mb-1.5 block text-sm font-semibold text-foreground; }
+  .form-control { @apply w-full rounded-xl border border-input bg-background px-3 py-2.5 text-foreground shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring; }
+  .admin-table-wrap { @apply overflow-x-auto rounded-2xl border border-border bg-card; }
+  .admin-table { @apply w-full min-w-[720px] border-collapse text-sm; }
+  .admin-table th { @apply border-b border-border bg-muted/60 px-4 py-3 text-start font-semibold; }
+  .admin-table td { @apply border-b border-border/70 px-4 py-3 align-top; }
+  .admin-table tr:last-child td { @apply border-b-0; }
+}
+
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 18% 30%, hsl(var(--gold) / .23), transparent 30rem),
+    radial-gradient(circle at 88% 70%, hsl(var(--wood-light) / .23), transparent 34rem);
+}
+
+.glass-effect {
+  background: hsl(var(--background) / .88);
+  border-color: hsl(var(--border) / .7);
+  backdrop-filter: blur(16px);
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.text-balance { text-wrap: balance; }
+
+/* Keep public-form honeypots available to simple bots without affecting RTL layout. */
+form div[aria-hidden='true'] {
+  position: absolute;
+  inset-inline-start: 0;
+  left: auto !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
